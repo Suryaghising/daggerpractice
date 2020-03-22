@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.surya.daggerpractice.BaseActivity;
 import com.surya.daggerpractice.R;
+import com.surya.daggerpractice.ui.main.post.PostFragment;
 import com.surya.daggerpractice.ui.main.profile.ProfileFragment;
 
 public class MainActivity extends BaseActivity {
@@ -27,7 +28,7 @@ public class MainActivity extends BaseActivity {
 
     private void navigateToFragment() {
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.containerId, new ProfileFragment())
+                .replace(R.id.containerId, new PostFragment())
                 .commit();
     }
 

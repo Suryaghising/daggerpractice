@@ -4,6 +4,7 @@ package com.surya.daggerpractice.di;
 import com.surya.daggerpractice.di.auth.AuthModule;
 import com.surya.daggerpractice.di.auth.AuthViewModelsModule;
 import com.surya.daggerpractice.di.main.MainFragmentBuildersModule;
+import com.surya.daggerpractice.di.main.MainModule;
 import com.surya.daggerpractice.di.main.MainViewModelsModule;
 import com.surya.daggerpractice.ui.auth.AuthActivity;
 import com.surya.daggerpractice.ui.main.MainActivity;
@@ -20,7 +21,11 @@ public abstract class ActivityBuildersModule {
 
 
     @ContributesAndroidInjector(
-            modules = {MainFragmentBuildersModule.class, MainViewModelsModule.class}
+            modules = {
+                    MainFragmentBuildersModule.class,
+                    MainViewModelsModule.class,
+                    MainModule.class
+            }
     )
     abstract MainActivity contributeMainActivity();
 

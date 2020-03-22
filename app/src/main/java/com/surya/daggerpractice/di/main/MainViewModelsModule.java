@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel;
 
 
 import com.surya.daggerpractice.di.ViewModelKey;
+import com.surya.daggerpractice.ui.main.post.PostViewModel;
 import com.surya.daggerpractice.ui.main.profile.ProfileViewModel;
 
 import dagger.Binds;
@@ -17,6 +18,11 @@ public abstract class MainViewModelsModule {
     @IntoMap
     @ViewModelKey(ProfileViewModel.class)
     public abstract ViewModel bindProfileViewModel(ProfileViewModel viewModel);
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PostViewModel.class)
+    public abstract ViewModel bindsPostViewModel(PostViewModel viewModel);
 
 }
 
