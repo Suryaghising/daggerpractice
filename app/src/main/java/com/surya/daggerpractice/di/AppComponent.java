@@ -2,9 +2,9 @@ package com.surya.daggerpractice.di;
 
 import android.app.Application;
 
+
 import com.surya.daggerpractice.BaseApplication;
 import com.surya.daggerpractice.SessionManager;
-import com.surya.daggerpractice.di.auth.AuthViewModelModule;
 
 import javax.inject.Singleton;
 
@@ -17,10 +17,9 @@ import dagger.android.support.AndroidSupportInjectionModule;
 @Component(
         modules = {
                 AndroidSupportInjectionModule.class,
-                ActivityBuilderModule.class,
+                ActivityBuildersModule.class,
                 AppModule.class,
-                ViewModelProviderFactoryModule.class,
-                AuthViewModelModule.class,
+                ViewModelFactoryModule.class,
         }
 )
 public interface AppComponent extends AndroidInjector<BaseApplication> {
@@ -28,7 +27,7 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
     SessionManager sessionManager();
 
     @Component.Builder
-    interface Builder {
+    interface Builder{
 
         @BindsInstance
         Builder application(Application application);
@@ -36,3 +35,10 @@ public interface AppComponent extends AndroidInjector<BaseApplication> {
         AppComponent build();
     }
 }
+
+
+
+
+
+
+

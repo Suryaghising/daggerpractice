@@ -10,10 +10,10 @@ import dagger.Module;
 import dagger.multibindings.IntoMap;
 
 @Module
-public abstract class AuthViewModelModule {
+public abstract class AuthViewModelsModule {
 
     @Binds
     @IntoMap
     @ViewModelKey(AuthViewModel.class)
-    public abstract ViewModel authViewModel(AuthViewModel authViewModel);
+    public abstract ViewModel bindAuthViewModel(AuthViewModel viewModel);
 }

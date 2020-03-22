@@ -19,8 +19,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static com.surya.daggerpractice.util.Constants.BASE_URL;
-
 @Module
 public class AppModule {
 
@@ -28,7 +26,7 @@ public class AppModule {
     @Provides
     static Retrofit provideRetrofitInstance(){
         return new Retrofit.Builder()
-                .baseUrl(BASE_URL)
+                .baseUrl(Constants.BASE_URL)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
@@ -36,7 +34,7 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public RequestOptions providesRequestOptions() {
+    static RequestOptions provideRequestOptions(){
         return RequestOptions
                 .placeholderOf(R.drawable.white_background)
                 .error(R.drawable.white_background);
@@ -44,15 +42,31 @@ public class AppModule {
 
     @Singleton
     @Provides
-    public RequestManager providesGlideInstance(Application application, RequestOptions requestOptions) {
-        return Glide
-                .with(application)
+    static RequestManager provideGlideInstance(Application application, RequestOptions requestOptions){
+        return Glide.with(application)
                 .setDefaultRequestOptions(requestOptions);
     }
 
     @Singleton
     @Provides
-    public Drawable providesAppDrawable(Application application) {
+    static Drawable provideAppDrawable(Application application){
         return ContextCompat.getDrawable(application, R.drawable.logo);
     }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

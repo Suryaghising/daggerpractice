@@ -1,5 +1,6 @@
 package com.surya.daggerpractice.di.auth;
 
+
 import com.surya.daggerpractice.network.auth.AuthApi;
 
 import dagger.Module;
@@ -10,7 +11,7 @@ import retrofit2.Retrofit;
 public class AuthModule {
 
     @Provides
-    static AuthApi authApi(Retrofit retrofit) {
+    static AuthApi provideAuthApi(Retrofit retrofit){
         return retrofit.create(AuthApi.class);
     }
 }
